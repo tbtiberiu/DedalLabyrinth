@@ -1,0 +1,23 @@
+.Details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Counts {
+  display: flex;
+  font-size: 1.5rem;
+  gap: 2rem;
+}
+
+.Buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.NoLabyrinthText {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "HpnYO9evCJ/RPkoyJdZW8aOD9SvkZlJFa4qqeRzqfb0=",
+  "Source": "DedalLabyrinth.Server",
+  "BasePath": "_content/DedalLabyrinth.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\tiber\\Documents\\labirint\\DedalLabyrinth\\dedallabyrinth.client\\dedallabyrinth.client.esproj",
+      "Version": 2,
+      "Source": "dedallabyrinth.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,15 @@
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.NavLinks {
+  display: flex;
+  gap: 4rem;
+}
+
+.ActiveNavLink {
+  text-decoration: underline;
+}

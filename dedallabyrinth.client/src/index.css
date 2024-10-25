@@ -1,0 +1,69 @@
+@font-face {
+  font-family: 'Jaro Regular';
+  src: local('Jaro Regular'), url(fonts/Jaro-Regular.ttf) format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+:root {
+  font-family: 'Jaro Regular', sans-serif;
+}
+
+ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+a {
+  font-weight: 500;
+  color: #1a1a1a;
+  text-decoration: inherit;
+  font-size: 2rem;
+  text-decoration: none;
+}
+a:hover {
+  color: #ffdf00;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+button {
+  border-radius: 8px;
+  border: 5px solid transparent;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #ffdf00;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

@@ -1,0 +1,8 @@
+.Labyrinth {
+  display: flex;
+  justify-content: center;
+}
+
+.Row {
+  display: flex;
+}

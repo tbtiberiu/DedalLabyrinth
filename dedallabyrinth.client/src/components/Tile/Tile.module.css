@@ -1,0 +1,49 @@
+.Tile {
+  width: 50px;
+  height: 50px;
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Tile.type0 {
+  background-color: #56bc5a;
+}
+
+.Tile.type1 {
+  background-color: #99370a;
+}
+
+.Tile.type2 {
+  background-color: #b78370;
+}
+
+.Tile.type3 {
+  background-color: #ff9800;
+}
+
+.Tile.type4 {
+  background-color: #f44336;
+}
+
+.Tile.type0:hover {
+  background-color: #45a045;
+  transform: scale(1.05);
+}
+
+.Tile.type2:hover {
+  background-color: #a76d5a;
+  transform: scale(1.05);
+}
+
+.Tile.type3:hover {
+  background-color: #e68a00;
+  transform: scale(1.05);
+}
+
+.Tile.type4:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
