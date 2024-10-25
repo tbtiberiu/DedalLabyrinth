@@ -10,8 +10,12 @@ namespace DedalLabyrinth.Server.Services
     public class LabyrinthService
     {
         LabyrinthDAL _selectedLabyrinth = new LabyrinthDAL();
+        private readonly IServiceScopeFactory _scopeFactory;
 
-        public LabyrinthService() { }
+        public LabyrinthService(IServiceScopeFactory scopeFactory)
+        {
+            _scopeFactory = scopeFactory;
+        }
 
         public LabyrinthDAL CreateLabyrinth(int rowCount, int columnCount, double density)
         {
@@ -25,18 +29,6 @@ namespace DedalLabyrinth.Server.Services
                 RowCount = rowCount,
                 ColCount = columnCount
             };
-
-            var newLabyrinth = new Labyrinth
-            {
-                Name = _selectedLabyrinth.Name,
-                Matrix = serializedMatrix,
-                RowCount = rowCount,
-                ColCount = columnCount
-            };
-
-            // Save to the database
-            //_context.Labyrinths.Add(newLabyrinth);
-            //_context.SaveChanges();
 
             return _selectedLabyrinth;
         }
@@ -131,6 +123,58 @@ namespace DedalLabyrinth.Server.Services
             return matrix;
         }
 
+        public List<LabyrinthDAL> GetAllLabyrinths()
+        {
+            using (var scope = _scopeFactory.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<LabyrinthContext>();
+
+                // Fetch all labyrinths from the database
+                var labyrinths = dbContext.Labyrinths.ToList();
+
+                // Convert to LabyrinthDAL list
+                var labyrinthsDAL = labyrinths.Select(l => new LabyrinthDAL
+                {
+                    Id = l.Id,
+                    Name = l.Name,
+                    Matrix = JsonConvert.DeserializeObject<List<List<Tile>>>(l.Matrix),
+                    RowCount = l.RowCount,
+                    ColCount = l.ColCount
+                }).ToList();
+
+                return labyrinthsDAL;
+            }
+        }
+
+        public LabyrinthDAL SelectLabyrinthById(int id)
+        {
+            using (var scope = _scopeFactory.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<LabyrinthContext>();
+
+                var labyrinth = dbContext.Labyrinths.Find(id);
+
+                if (labyrinth == null)
+                {
+                    return null;
+                }
+
+                var labyrinthDAL = new LabyrinthDAL
+                {
+                    Id = labyrinth.Id,
+                    Name = labyrinth.Name,
+                    Matrix = JsonConvert.DeserializeObject<List<List<Tile>>>(labyrinth.Matrix),
+                    RowCount = labyrinth.RowCount,
+                    ColCount = labyrinth.ColCount
+                };
+
+                _selectedLabyrinth = labyrinthDAL;
+
+                return labyrinthDAL;
+            }
+        }
+
+
         public List<Tuple<int, int>> FindShortestPath(Tuple<int, int> start, Tuple<int, int> finish)
         {
             int rows = _selectedLabyrinth.RowCount;
@@ -157,7 +201,9 @@ namespace DedalLabyrinth.Server.Services
 
                 if (current.Equals(finish))
                 {
-                    return BuildPath(parents, start, finish);
+                    var path = BuildPath(parents, start, finish);
+                    SaveLabyrinthPath();
+                    return path;
                 }
 
                 foreach (var direction in directions)
@@ -175,6 +221,27 @@ namespace DedalLabyrinth.Server.Services
             }
 
             return new List<Tuple<int, int>>(); // Return empty if no path is found
+        }
+
+        public void SaveLabyrinthPath()
+        {
+            using (var scope = _scopeFactory.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<LabyrinthContext>();
+                var serializedMatrix = JsonConvert.SerializeObject(_selectedLabyrinth.Matrix);
+
+                var newLabyrinth = new Labyrinth
+                {
+                    Name = _selectedLabyrinth.Name,
+                    Matrix = serializedMatrix,
+                    RowCount = _selectedLabyrinth.RowCount,
+                    ColCount = _selectedLabyrinth.ColCount
+                };
+
+                // Save to the database
+                dbContext.Labyrinths.Add(newLabyrinth);
+                dbContext.SaveChanges();
+            }
         }
 
         private List<Tuple<int, int>> BuildPath(Dictionary<Tuple<int, int>, Tuple<int, int>> parents, Tuple<int, int> start, Tuple<int, int> finish)

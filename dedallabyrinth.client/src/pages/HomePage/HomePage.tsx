@@ -7,19 +7,9 @@ import axios from 'axios';
 import { LabyrinthType } from '../../types/LabyrinthType';
 import NewLabyrinthDialog from '../../components/Dialog/NewLabyrinthDialog';
 
-function HomePage() {
+const HomePage: React.FC = () => {
   const baseUrl = 'https://localhost:7031/Labyrinth';
-  const [labyrinth, setLabyrinth] = useState<LabyrinthType>({
-    id: 0,
-    name: '',
-    matrix: [
-      [0, 0, 1],
-      [1, 0, 0],
-      [0, 0, 0],
-    ],
-    rowCount: 3,
-    colCount: 3,
-  });
+  const [labyrinth, setLabyrinth] = useState<LabyrinthType | null>(null);
   const [startPoint, setStartPoint] = useState({ x: -1, y: -1 });
   const [finishPoint, setFinishPoint] = useState({ x: -1, y: -1 });
   const [openDialog, setOpenDialog] = useState(false);
@@ -51,7 +41,7 @@ function HomePage() {
       const currentLabyrinth: LabyrinthType = response.data;
       setLabyrinth(currentLabyrinth);
     } catch (error) {
-      console.error('Error creating labyrinth: ', error);
+      console.error('Error fetching current labyrinth: ', error);
     }
   };
 
@@ -109,6 +99,7 @@ function HomePage() {
           labyrinth={labyrinth}
           onStartPointChange={handleStartPointChange}
           onFinishPointChange={handleFinishPointChange}
+          active={true}
         />
       ) : (
         <div className={styles.NoLabyrinthText}>
@@ -119,10 +110,10 @@ function HomePage() {
       <div className={styles.Details}>
         <div className={styles.Counts}>
           <p>
-            Row Count: <span>{labyrinth.rowCount}</span>
+            Row Count: <span>{labyrinth?.rowCount}</span>
           </p>
           <p>
-            Column Count: <span>{labyrinth.colCount}</span>
+            Column Count: <span>{labyrinth?.colCount}</span>
           </p>
         </div>
         <div className={styles.Buttons}>
@@ -132,6 +123,6 @@ function HomePage() {
       </div>
     </div>
   );
-}
+};
 
 export default HomePage;

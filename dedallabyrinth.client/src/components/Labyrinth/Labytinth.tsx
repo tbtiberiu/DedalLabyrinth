@@ -6,6 +6,7 @@ const Labyrinth: React.FC<LabyrinthProps> = ({
   labyrinth,
   onStartPointChange,
   onFinishPointChange,
+  active,
 }) => {
   const handleClick = () => {};
 
@@ -16,6 +17,7 @@ const Labyrinth: React.FC<LabyrinthProps> = ({
           <div key={rowIndex} className={styles.Row}>
             {row.map((tile, colIndex) => (
               <Tile
+                active={active}
                 row={rowIndex}
                 column={colIndex}
                 key={`${rowIndex}-${colIndex}`}

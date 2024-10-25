@@ -22,6 +22,27 @@ namespace DedalLabyrinth.Server.Controllers
             return Ok(labyrinthDAL);
         }
 
+        [HttpGet("all")]
+        public IActionResult GetAllLabyrinths()
+        {
+            var labyrinths = _labyrinthService.GetAllLabyrinths();
+
+            return Ok(labyrinths);
+        }
+
+        [HttpPost("{id}")]
+        public IActionResult SelectLabyrinthById(int id)
+        {
+            var labyrinthDAL = _labyrinthService.SelectLabyrinthById(id);
+
+            if (labyrinthDAL == null)
+            {
+                return NotFound($"Labyrinth with ID {id} not found.");
+            }
+
+            return Ok();
+        }
+
 
         [HttpGet("generate")]
         public IActionResult CreateLabyrinth(int rowCount, int columnCount, double density)

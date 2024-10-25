@@ -1,10 +1,14 @@
 .Tile {
-  width: 50px;
-  height: 50px;
-  background-color: #d9d9d9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-grow: 1;
+  min-width: 10px;
+  min-height: 10px;
+  max-width: 50px;
+  max-height: 50px;
+  aspect-ratio: 1;
+  width: 100%;
+}
+
+.Tile.enabled {
   cursor: pointer;
 }
 
@@ -28,22 +32,22 @@
   background-color: #f44336;
 }
 
-.Tile.type0:hover {
+.Tile.enabled.type0:hover {
   background-color: #45a045;
   transform: scale(1.05);
 }
 
-.Tile.type2:hover {
+.Tile.enabled.type2:hover {
   background-color: #a76d5a;
   transform: scale(1.05);
 }
 
-.Tile.type3:hover {
+.Tile.enabled.type3:hover {
   background-color: #e68a00;
   transform: scale(1.05);
 }
 
-.Tile.type4:hover {
+.Tile.enabled.type4:hover {
   background-color: #d32f2f;
   transform: scale(1.05);
 }

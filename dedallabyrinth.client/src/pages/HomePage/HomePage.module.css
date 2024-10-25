@@ -20,4 +20,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Arial';
+  font-weight: 500;
 }

@@ -5,7 +5,8 @@ export type TileProps = {
   row: number;
   column: number;
   type: TileEnum;
-  onClick: MouseEventHandler<HTMLDivElement> | undefined;
-  onStartPointChange: (x: number, y: number) => void;
-  onFinishPointChange: (x: number, y: number) => void;
+  onClick?: MouseEventHandler<HTMLDivElement> | undefined;
+  onStartPointChange?: (x: number, y: number) => void;
+  onFinishPointChange?: (x: number, y: number) => void;
+  active: boolean;
 };

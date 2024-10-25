@@ -1,0 +1,15 @@
+.Labyrinths {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.LabyrinthItem {
+  max-width: 300px;
+  cursor: pointer;
+}
+
+.LabyrinthDetails {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
