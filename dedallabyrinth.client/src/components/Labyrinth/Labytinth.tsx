@@ -4,12 +4,12 @@ import styles from './Labyrinth.module.css';
 
 const Labyrinth: React.FC<LabyrinthProps> = ({
   labyrinth,
+  startPoint,
+  finishPoint,
   onStartPointChange,
   onFinishPointChange,
   active,
 }) => {
-  const handleClick = () => {};
-
   return (
     <div className={styles.Labyrinth}>
       <div className={styles.Wrapper}>
@@ -22,7 +22,8 @@ const Labyrinth: React.FC<LabyrinthProps> = ({
                 column={colIndex}
                 key={`${rowIndex}-${colIndex}`}
                 type={tile}
-                onClick={handleClick}
+                startPoint={startPoint}
+                finishPoint={finishPoint}
                 onStartPointChange={onStartPointChange}
                 onFinishPointChange={onFinishPointChange}
               />

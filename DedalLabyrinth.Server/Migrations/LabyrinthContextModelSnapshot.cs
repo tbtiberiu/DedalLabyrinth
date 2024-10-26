@@ -40,6 +40,10 @@ namespace DedalLabyrinth.Server.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<int>("RowCount")
                         .HasColumnType("int");
 

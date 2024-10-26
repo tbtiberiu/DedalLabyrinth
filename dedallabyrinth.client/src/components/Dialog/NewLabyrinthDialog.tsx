@@ -7,7 +7,9 @@ import {
   DialogContent,
   Slide,
   SlideProps,
+  Slider,
   TextField,
+  Typography,
 } from '@mui/material';
 
 const Transition = React.forwardRef(function Transition(
@@ -26,6 +28,25 @@ const NewLabyrinthDialog: React.FC<{
     density: number
   ) => void;
 }> = ({ open, onClose, onSubmitClicked }) => {
+  const marks = [
+    {
+      value: 0,
+      label: '0%',
+    },
+    {
+      value: 20,
+      label: '20%',
+    },
+    {
+      value: 40,
+      label: '40%',
+    },
+  ];
+
+  function valuetext(value: number) {
+    return `${value}%`;
+  }
+
   const textFieldStyle = {
     // Root class for the input field
     '& .MuiOutlinedInput-root': {
@@ -37,6 +58,12 @@ const NewLabyrinthDialog: React.FC<{
         borderColor: '#1a1a1a',
         borderWidth: '2px',
       },
+      '&:hover .MuiOutlinedInput-notchedOutline': {
+        borderColor: '#1a1a1a',
+      },
+      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+        borderColor: '#FFD700',
+      },
     },
     // Class for the label of the input field
     '& .MuiInputLabel-outlined': {
@@ -45,11 +72,22 @@ const NewLabyrinthDialog: React.FC<{
     },
   };
 
+  const sliderStyle = {
+    color: '#1a1a1a',
+    '& .MuiSlider-thumb': {
+      border: '3px solid #FFD700',
+    },
+  };
+
   const [formData, setFormData] = useState({
     rowCount: '',
     columnCount: '',
-    density: '',
   });
+  const [density, setDensity] = React.useState(30);
+
+  const handleSliderChange = (event: Event, newValue: number | number[]) => {
+    setDensity(newValue as number);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -58,11 +96,7 @@ const NewLabyrinthDialog: React.FC<{
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSubmitClicked(
-      +formData.rowCount,
-      +formData.columnCount,
-      +formData.density
-    );
+    onSubmitClicked(+formData.rowCount, +formData.columnCount, density);
     onClose();
   };
 
@@ -90,15 +124,20 @@ const NewLabyrinthDialog: React.FC<{
             margin="normal"
             sx={textFieldStyle}
           />
-          <TextField
-            name="density"
-            label="Density:"
-            type="number"
-            value={formData.density}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-            sx={textFieldStyle}
+          <Typography id="input-slider" gutterBottom>
+            Density:
+          </Typography>
+          <Slider
+            aria-label="Density"
+            value={typeof density === 'number' ? density : 0}
+            onChange={handleSliderChange}
+            aria-labelledby="input-slider"
+            getAriaValueText={valuetext}
+            marks={marks}
+            valueLabelDisplay="on"
+            min={0}
+            max={40}
+            sx={sliderStyle}
           />
           <DialogActions className={styles.DialogActions}>
             <Button className={styles.DialogButton} onClick={onClose}>

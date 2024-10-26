@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\tiber\\Documents\\labirint\\DedalLabyrinth\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|c:\\users\\tiber\\documents\\labirint\\dedallabyrinth\\dedallabyrinth.server\\services\\labyrinthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|solutionrelative:dedallabyrinth.server\\services\\labyrinthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|c:\\users\\tiber\\documents\\labirint\\dedallabyrinth\\dedallabyrinth.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|solutionrelative:dedallabyrinth.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|c:\\users\\tiber\\documents\\labirint\\dedallabyrinth\\dedallabyrinth.server\\data\\labyrinthcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|solutionrelative:dedallabyrinth.server\\data\\labyrinthcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|c:\\users\\tiber\\documents\\labirint\\dedallabyrinth\\dedallabyrinth.server\\controllers\\labyrinthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|solutionrelative:dedallabyrinth.server\\controllers\\labyrinthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|c:\\users\\tiber\\documents\\labirint\\dedallabyrinth\\dedallabyrinth.server\\dals\\labyrinthdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|solutionrelative:dedallabyrinth.server\\dals\\labyrinthdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|c:\\users\\tiber\\documents\\labirint\\dedallabyrinth\\dedallabyrinth.server\\models\\labyrinth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|solutionrelative:dedallabyrinth.server\\models\\labyrinth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|c:\\users\\tiber\\documents\\labirint\\dedallabyrinth\\dedallabyrinth.server\\controllers\\labyrinthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|solutionrelative:dedallabyrinth.server\\controllers\\labyrinthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|c:\\users\\tiber\\documents\\labirint\\dedallabyrinth\\dedallabyrinth.server\\services\\labyrinthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|solutionrelative:dedallabyrinth.server\\services\\labyrinthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|c:\\users\\tiber\\documents\\labirint\\dedallabyrinth\\dedallabyrinth.server\\data\\labyrinthcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|solutionrelative:dedallabyrinth.server\\data\\labyrinthcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|c:\\users\\tiber\\documents\\labirint\\dedallabyrinth\\dedallabyrinth.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|solutionrelative:dedallabyrinth.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D4F81154-6A00-4194-92F2-A67868A3CBED}|DedalLabyrinth.Server\\DedalLabyrinth.Server.csproj|c:\\users\\tiber\\documents\\labirint\\dedallabyrinth\\dedallabyrinth.server\\enums\\tile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,11 +38,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Labyrinth.cs",
+              "DocumentMoniker": "C:\\Users\\tiber\\Documents\\labirint\\DedalLabyrinth\\DedalLabyrinth.Server\\Models\\Labyrinth.cs",
+              "RelativeDocumentMoniker": "DedalLabyrinth.Server\\Models\\Labyrinth.cs",
+              "ToolTip": "C:\\Users\\tiber\\Documents\\labirint\\DedalLabyrinth\\DedalLabyrinth.Server\\Models\\Labyrinth.cs",
+              "RelativeToolTip": "DedalLabyrinth.Server\\Models\\Labyrinth.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T02:06:25.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\tiber\\Documents\\labirint\\DedalLabyrinth\\DedalLabyrinth.Server\\Program.cs",
               "RelativeDocumentMoniker": "DedalLabyrinth.Server\\Program.cs",
@@ -55,7 +68,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "LabyrinthContext.cs",
               "DocumentMoniker": "C:\\Users\\tiber\\Documents\\labirint\\DedalLabyrinth\\DedalLabyrinth.Server\\Data\\LabyrinthContext.cs",
               "RelativeDocumentMoniker": "DedalLabyrinth.Server\\Data\\LabyrinthContext.cs",
@@ -68,38 +81,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "LabyrinthController.cs",
               "DocumentMoniker": "C:\\Users\\tiber\\Documents\\labirint\\DedalLabyrinth\\DedalLabyrinth.Server\\Controllers\\LabyrinthController.cs",
               "RelativeDocumentMoniker": "DedalLabyrinth.Server\\Controllers\\LabyrinthController.cs",
               "ToolTip": "C:\\Users\\tiber\\Documents\\labirint\\DedalLabyrinth\\DedalLabyrinth.Server\\Controllers\\LabyrinthController.cs",
               "RelativeToolTip": "DedalLabyrinth.Server\\Controllers\\LabyrinthController.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAAAE0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-25T15:23:54.251Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Labyrinth.cs",
-              "DocumentMoniker": "C:\\Users\\tiber\\Documents\\labirint\\DedalLabyrinth\\DedalLabyrinth.Server\\Models\\Labyrinth.cs",
-              "RelativeDocumentMoniker": "DedalLabyrinth.Server\\Models\\Labyrinth.cs",
-              "ToolTip": "C:\\Users\\tiber\\Documents\\labirint\\DedalLabyrinth\\DedalLabyrinth.Server\\Models\\Labyrinth.cs",
-              "RelativeToolTip": "DedalLabyrinth.Server\\Models\\Labyrinth.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T13:15:55.989Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "LabyrinthService.cs",
               "DocumentMoniker": "C:\\Users\\tiber\\Documents\\labirint\\DedalLabyrinth\\DedalLabyrinth.Server\\Services\\LabyrinthService.cs",
               "RelativeDocumentMoniker": "DedalLabyrinth.Server\\Services\\LabyrinthService.cs",
               "ToolTip": "C:\\Users\\tiber\\Documents\\labirint\\DedalLabyrinth\\DedalLabyrinth.Server\\Services\\LabyrinthService.cs",
               "RelativeToolTip": "DedalLabyrinth.Server\\Services\\LabyrinthService.cs",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAuwLUAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAmwHgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-25T08:15:21.512Z",
               "EditorCaption": ""
@@ -118,15 +119,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "LabyrinthDAL.cs",
               "DocumentMoniker": "C:\\Users\\tiber\\Documents\\labirint\\DedalLabyrinth\\DedalLabyrinth.Server\\Dals\\LabyrinthDAL.cs",
               "RelativeDocumentMoniker": "DedalLabyrinth.Server\\Dals\\LabyrinthDAL.cs",
               "ToolTip": "C:\\Users\\tiber\\Documents\\labirint\\DedalLabyrinth\\DedalLabyrinth.Server\\Dals\\LabyrinthDAL.cs",
               "RelativeToolTip": "DedalLabyrinth.Server\\Dals\\LabyrinthDAL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA1wAoAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T10:54:24.114Z"
+              "WhenOpened": "2024-10-25T10:54:24.114Z",
+              "EditorCaption": ""
             }
           ]
         }

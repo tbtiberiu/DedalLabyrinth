@@ -1,11 +1,13 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
 function Navbar() {
   return (
     <nav className={styles.Navbar}>
       <div>
-        <h1>Dedal's Labyrinth</h1>
+        <h1>
+          <Link to="/">Dedal's Labyrinth</Link>
+        </h1>
       </div>
       <div>
         <ul className={styles.NavLinks}>

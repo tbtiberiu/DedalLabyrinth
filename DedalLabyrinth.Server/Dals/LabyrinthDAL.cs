@@ -8,6 +8,7 @@ namespace DedalLabyrinth.Server.Entities
         public int Id { get; set; } = 0;
         public string? Name { get; set; } = "";
         public List<List<Tile>> Matrix { get; set; } = [];
+        public List<Tuple<int, int>> Path { get; set; } = [];
         public int RowCount { get; set; } = 0;
         public int ColCount { get; set; } = 0;
     }

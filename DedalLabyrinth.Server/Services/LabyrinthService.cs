@@ -17,7 +17,7 @@ namespace DedalLabyrinth.Server.Services
             _scopeFactory = scopeFactory;
         }
 
-        public LabyrinthDAL CreateLabyrinth(int rowCount, int columnCount, double density)
+        public LabyrinthDAL CreateLabyrinth(int rowCount, int columnCount, int density)
         {
             List<List<Tile>> matrix = GenerateLabyrinth(rowCount, columnCount, density);
             var serializedMatrix = JsonConvert.SerializeObject(matrix);
@@ -33,11 +33,11 @@ namespace DedalLabyrinth.Server.Services
             return _selectedLabyrinth;
         }
 
-        private List<List<Tile>> GenerateLabyrinth(int rows, int columns, double density)
+        private List<List<Tile>> GenerateLabyrinth(int rows, int columns, int density)
         {
             var random = new Random();
             List<List<Tile>> matrix = [];
-            int grassTileMaxCount = (int)((1.0 - density) * rows * columns);
+            int grassTileMaxCount = (int)((100 - density) / 100.0 * (rows * columns));
 
             for (int i = 0; i < rows; i++)
             {
@@ -139,7 +139,8 @@ namespace DedalLabyrinth.Server.Services
                     Name = l.Name,
                     Matrix = JsonConvert.DeserializeObject<List<List<Tile>>>(l.Matrix),
                     RowCount = l.RowCount,
-                    ColCount = l.ColCount
+                    ColCount = l.ColCount,
+                    Path = JsonConvert.DeserializeObject<List<Tuple<int, int>>>(l.Path)
                 }).ToList();
 
                 return labyrinthsDAL;
@@ -165,7 +166,8 @@ namespace DedalLabyrinth.Server.Services
                     Name = labyrinth.Name,
                     Matrix = JsonConvert.DeserializeObject<List<List<Tile>>>(labyrinth.Matrix),
                     RowCount = labyrinth.RowCount,
-                    ColCount = labyrinth.ColCount
+                    ColCount = labyrinth.ColCount,
+                    Path = JsonConvert.DeserializeObject<List<Tuple<int, int>>>(labyrinth.Path)
                 };
 
                 _selectedLabyrinth = labyrinthDAL;
@@ -186,10 +188,10 @@ namespace DedalLabyrinth.Server.Services
             var parents = new Dictionary<Tuple<int, int>, Tuple<int, int>>();
             var directions = new List<Tuple<int, int>>
             {
-                new Tuple<int, int>(-1, 0), // Up
-                new Tuple<int, int>(1, 0),  // Down
-                new Tuple<int, int>(0, -1), // Left
-                new Tuple<int, int>(0, 1)   // Right
+                new(-1, 0), // Up
+                new(1, 0),  // Down
+                new(0, -1), // Left
+                new(0, 1)   // Right
             };
 
             queue.Enqueue(start);
@@ -202,6 +204,7 @@ namespace DedalLabyrinth.Server.Services
                 if (current.Equals(finish))
                 {
                     var path = BuildPath(parents, start, finish);
+                    _selectedLabyrinth.Path = path;
                     SaveLabyrinthPath();
                     return path;
                 }
@@ -220,7 +223,7 @@ namespace DedalLabyrinth.Server.Services
                 }
             }
 
-            return new List<Tuple<int, int>>(); // Return empty if no path is found
+            return [];
         }
 
         public void SaveLabyrinthPath()
@@ -229,16 +232,17 @@ namespace DedalLabyrinth.Server.Services
             {
                 var dbContext = scope.ServiceProvider.GetRequiredService<LabyrinthContext>();
                 var serializedMatrix = JsonConvert.SerializeObject(_selectedLabyrinth.Matrix);
+                var serializedPath = JsonConvert.SerializeObject(_selectedLabyrinth.Path);
 
                 var newLabyrinth = new Labyrinth
                 {
                     Name = _selectedLabyrinth.Name,
                     Matrix = serializedMatrix,
                     RowCount = _selectedLabyrinth.RowCount,
-                    ColCount = _selectedLabyrinth.ColCount
+                    ColCount = _selectedLabyrinth.ColCount,
+                    Path = serializedPath
                 };
 
-                // Save to the database
                 dbContext.Labyrinths.Add(newLabyrinth);
                 dbContext.SaveChanges();
             }
@@ -293,7 +297,7 @@ namespace DedalLabyrinth.Server.Services
 
         public LabyrinthDAL GetCurrentLabyrinth()
         {
-            return _selectedLabyrinth; // This should return the current labyrinth instance.
+            return _selectedLabyrinth;
         }
     }
 }

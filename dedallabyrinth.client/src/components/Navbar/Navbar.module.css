@@ -5,6 +5,10 @@
   margin-bottom: 1rem;
 }
 
+.Navbar h1 a {
+  font-size: 3rem;
+}
+
 .NavLinks {
   display: flex;
   gap: 4rem;

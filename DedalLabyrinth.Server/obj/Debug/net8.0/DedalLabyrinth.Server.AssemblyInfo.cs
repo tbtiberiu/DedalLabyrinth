@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DedalLabyrinth.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+30760b17f4b60267689d31ebf50dfe871c1411ab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1c9abab2e4149ef1d59ac332efba88e22bf04de")]
 [assembly: System.Reflection.AssemblyProductAttribute("DedalLabyrinth.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DedalLabyrinth.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

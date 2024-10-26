@@ -25,7 +25,9 @@ namespace DedalLabyrinth.Server.Migrations
                     Matrix = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     RowCount = table.Column<int>(type: "int", nullable: false),
-                    ColCount = table.Column<int>(type: "int", nullable: false)
+                    ColCount = table.Column<int>(type: "int", nullable: false),
+                    Path = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {

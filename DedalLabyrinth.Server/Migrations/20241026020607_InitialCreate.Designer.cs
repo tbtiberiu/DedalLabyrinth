@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DedalLabyrinth.Server.Migrations
 {
     [DbContext(typeof(LabyrinthContext))]
-    [Migration("20241025224718_InitialCreate")]
+    [Migration("20241026020607_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -40,6 +40,10 @@ namespace DedalLabyrinth.Server.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Path")
                         .IsRequired()
                         .HasColumnType("longtext");
 

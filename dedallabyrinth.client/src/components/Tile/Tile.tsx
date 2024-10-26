@@ -6,7 +6,8 @@ const Tile: React.FC<TileProps> = ({
   row,
   column,
   type,
-  onClick,
+  startPoint,
+  finishPoint,
   onStartPointChange,
   onFinishPointChange,
   active = true,
@@ -24,14 +25,22 @@ const Tile: React.FC<TileProps> = ({
       // Right click
       onFinishPointChange(row, column);
     }
+  };
 
-    onClick?.(event);
+  const isStartPoint = () => {
+    return startPoint && row === startPoint.x && column === startPoint.y;
+  };
+
+  const isFinishPoint = () => {
+    return finishPoint && row === finishPoint.x && column === finishPoint.y;
   };
 
   return (
     <div
       className={`${styles.Tile} ${active ? styles[`enabled`] : ''} ${
         styles[`type${type}`]
+      } ${isStartPoint() ? styles[`start`] : ''} ${
+        isFinishPoint() ? styles[`finish`] : ''
       }`}
       onClick={handleClick}
       onContextMenu={handleClick}

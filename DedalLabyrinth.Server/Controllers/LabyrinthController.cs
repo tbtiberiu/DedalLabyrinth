@@ -45,9 +45,9 @@ namespace DedalLabyrinth.Server.Controllers
 
 
         [HttpGet("generate")]
-        public IActionResult CreateLabyrinth(int rowCount, int columnCount, double density)
+        public IActionResult CreateLabyrinth(int rowCount, int columnCount, int density)
         {
-            if (rowCount <= 0 || columnCount <= 0 || density < 0 || density > 1)
+            if (rowCount <= 0 || columnCount <= 0 || density < 0 || density > 40)
                 return BadRequest("Invalid input parameters.");
 
             var labyrinthDAL = _labyrinthService.CreateLabyrinth(rowCount, columnCount, density);

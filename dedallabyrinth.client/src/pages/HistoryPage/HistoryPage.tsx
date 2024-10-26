@@ -4,7 +4,7 @@ import styles from './HistoryPage.module.css';
 import { LabyrinthType } from '../../types/LabyrinthType';
 import axios from 'axios';
 import Labyrinth from '../../components/Labyrinth/Labytinth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const HistoryPage = () => {
   const baseUrl = 'https://localhost:7031/Labyrinth';
@@ -47,22 +47,33 @@ const HistoryPage = () => {
     <div className={styles.HistoryPage}>
       <Navbar />
 
-      <div className={styles.Labyrinths}>
-        {labyrinths.map((labyrinth) => (
-          <div
-            key={labyrinth.id}
-            className={styles.LabyrinthItem}
-            onClick={() => handleLabyrinthChange(labyrinth.id)}
-          >
-            <div className={styles.Matrix}>
-              <Labyrinth active={false} labyrinth={labyrinth} />
+      <h1 className={styles.HistoryPageTitle}>History</h1>
+      <div className={labyrinths?.length > 0 ? styles.Labyrinths : ''}>
+        {labyrinths?.length > 0 ? (
+          labyrinths.map((labyrinth) => (
+            <div
+              key={labyrinth.id}
+              className={styles.LabyrinthItem}
+              onClick={() => handleLabyrinthChange(labyrinth.id)}
+            >
+              <div className={styles.Matrix}>
+                <Labyrinth active={false} labyrinth={labyrinth} />
+              </div>
+              <div className={styles.LabyrinthDetails}>
+                <p>Rows: {labyrinth.rowCount}</p>
+                <p>Columns: {labyrinth.colCount}</p>
+              </div>
             </div>
-            <div className={styles.LabyrinthDetails}>
-              <p>Rows: {labyrinth.rowCount}</p>
-              <p>Columns: {labyrinth.colCount}</p>
-            </div>
+          ))
+        ) : (
+          <div className={styles.NoLabyrinthText}>
+            No labyrinth for now. Create some from{' '}
+            <span>
+              <Link to="/">Home</Link>
+            </span>{' '}
+            page.
           </div>
-        ))}
+        )}
       </div>
     </div>
   );

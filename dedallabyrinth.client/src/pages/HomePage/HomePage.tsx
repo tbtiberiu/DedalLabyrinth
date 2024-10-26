@@ -6,12 +6,13 @@ import styles from './HomePage.module.css';
 import axios from 'axios';
 import { LabyrinthType } from '../../types/LabyrinthType';
 import NewLabyrinthDialog from '../../components/Dialog/NewLabyrinthDialog';
+import { PointType } from '../../types/PointType';
 
 const HomePage: React.FC = () => {
   const baseUrl = 'https://localhost:7031/Labyrinth';
   const [labyrinth, setLabyrinth] = useState<LabyrinthType | null>(null);
-  const [startPoint, setStartPoint] = useState({ x: -1, y: -1 });
-  const [finishPoint, setFinishPoint] = useState({ x: -1, y: -1 });
+  const [startPoint, setStartPoint] = useState<PointType>({ x: -1, y: -1 });
+  const [finishPoint, setFinishPoint] = useState<PointType>({ x: -1, y: -1 });
   const [openDialog, setOpenDialog] = useState(false);
 
   const handleOpen = () => setOpenDialog(true);
@@ -79,7 +80,7 @@ const HomePage: React.FC = () => {
         },
       });
 
-      const newLabyrinth = response.data;
+      const newLabyrinth: LabyrinthType = response.data;
       setLabyrinth(newLabyrinth);
     } catch (error) {
       console.error('Error finding path: ', error);
@@ -94,17 +95,19 @@ const HomePage: React.FC = () => {
         onClose={handleClose}
         onSubmitClicked={handleDialogSubmit}
       />
-      {labyrinth && labyrinth.matrix ? (
+      {labyrinth && labyrinth.matrix.length > 0 ? (
         <Labyrinth
           labyrinth={labyrinth}
           onStartPointChange={handleStartPointChange}
           onFinishPointChange={handleFinishPointChange}
           active={true}
+          startPoint={startPoint}
+          finishPoint={finishPoint}
         />
       ) : (
         <div className={styles.NoLabyrinthText}>
-          No labyrinth selected! You can create one or select from past
-          generated labyrinth!
+          No labyrinth selected. You can create one or select from past
+          generated labyrinth.
         </div>
       )}
       <div className={styles.Details}>

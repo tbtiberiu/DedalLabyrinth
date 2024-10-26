@@ -1,9 +1,21 @@
 .Labyrinths {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.HistoryPage h1 {
+  font-size: 2.4rem;
+}
+
+.HistoryPageTitle {
+  margin-bottom: 1rem;
 }
 
 .LabyrinthItem {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
   max-width: 300px;
   cursor: pointer;
 }
@@ -12,4 +24,19 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
+}
+
+.NoLabyrinthText {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arial';
+  font-weight: 500;
+}
+
+.NoLabyrinthText a {
+  font-size: 1rem;
+  padding: 0 5px;
+  color: #ffdf00;
 }

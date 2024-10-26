@@ -18,5 +18,8 @@ namespace DedalLabyrinth.Server.Models
         
         [Required]
         public int ColCount { get; set; } = 0;
+
+        [Required]
+        public string? Path {  get; set; }
     }
 }
