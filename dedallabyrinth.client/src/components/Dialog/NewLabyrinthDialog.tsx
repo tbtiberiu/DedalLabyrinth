@@ -63,7 +63,7 @@ const NewLabyrinthDialog: React.FC<{
         borderColor: '#FFD700',
       },
       '&.Mui-focused .MuiOutlinedInput-input': {
-        color: '#000',
+        color: '#1a1a1a',
       },
     },
     '& .MuiInputLabel-outlined': {
@@ -89,7 +89,7 @@ const NewLabyrinthDialog: React.FC<{
     columnCount: '',
   });
 
-  const handleSliderChange = (event: Event, newValue: number | number[]) => {
+  const handleSliderChange = (_event: Event, newValue: number | number[]) => {
     setDensity(newValue as number);
   };
 
