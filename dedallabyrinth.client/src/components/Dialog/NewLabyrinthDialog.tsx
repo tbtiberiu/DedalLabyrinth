@@ -48,12 +48,10 @@ const NewLabyrinthDialog: React.FC<{
   }
 
   const textFieldStyle = {
-    // Root class for the input field
     '& .MuiOutlinedInput-root': {
       color: '#000',
       fontFamily: 'Arial',
       fontWeight: 'bold',
-      // Class for the border around the input field
       '& .MuiOutlinedInput-notchedOutline': {
         borderColor: '#1a1a1a',
         borderWidth: '2px',
@@ -64,8 +62,10 @@ const NewLabyrinthDialog: React.FC<{
       '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
         borderColor: '#FFD700',
       },
+      '&.Mui-focused .MuiOutlinedInput-input': {
+        color: '#000',
+      },
     },
-    // Class for the label of the input field
     '& .MuiInputLabel-outlined': {
       color: '#1a1a1a',
       fontWeight: 'bold',
@@ -84,6 +84,10 @@ const NewLabyrinthDialog: React.FC<{
     columnCount: '',
   });
   const [density, setDensity] = React.useState(30);
+  const [errors, setErrors] = useState({
+    rowCount: '',
+    columnCount: '',
+  });
 
   const handleSliderChange = (event: Event, newValue: number | number[]) => {
     setDensity(newValue as number);
@@ -92,12 +96,49 @@ const NewLabyrinthDialog: React.FC<{
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    setErrors({ ...errors, [name]: '' });
+  };
+
+  const validateInputs = () => {
+    const newErrors = {
+      rowCount: '',
+      columnCount: '',
+    };
+    let isValid = true;
+
+    if (!formData.rowCount) {
+      newErrors.rowCount = 'Rows count is required';
+      isValid = false;
+    } else if (
+      !Number.isInteger(+formData.rowCount) ||
+      +formData.rowCount <= 0
+    ) {
+      newErrors.rowCount = 'Rows count must be a positive integer';
+      isValid = false;
+    }
+
+    // Check column count
+    if (!formData.columnCount) {
+      newErrors.columnCount = 'Column count is required';
+      isValid = false;
+    } else if (
+      !Number.isInteger(+formData.columnCount) ||
+      +formData.columnCount <= 0
+    ) {
+      newErrors.columnCount = 'Column count must be a positive integer';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSubmitClicked(+formData.rowCount, +formData.columnCount, density);
-    onClose();
+    if (validateInputs()) {
+      onSubmitClicked(+formData.rowCount, +formData.columnCount, density);
+      onClose();
+    }
   };
 
   return (
@@ -112,6 +153,8 @@ const NewLabyrinthDialog: React.FC<{
             onChange={handleChange}
             fullWidth
             margin="normal"
+            error={!!errors.rowCount}
+            helperText={errors.rowCount}
             sx={textFieldStyle}
           />
           <TextField
@@ -122,6 +165,8 @@ const NewLabyrinthDialog: React.FC<{
             onChange={handleChange}
             fullWidth
             margin="normal"
+            error={!!errors.columnCount}
+            helperText={errors.columnCount}
             sx={textFieldStyle}
           />
           <Typography id="input-slider" gutterBottom>

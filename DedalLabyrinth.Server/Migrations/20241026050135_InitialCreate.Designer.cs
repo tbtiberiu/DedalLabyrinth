@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DedalLabyrinth.Server.Migrations
 {
     [DbContext(typeof(LabyrinthContext))]
-    [Migration("20241026020607_InitialCreate")]
+    [Migration("20241026050135_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
